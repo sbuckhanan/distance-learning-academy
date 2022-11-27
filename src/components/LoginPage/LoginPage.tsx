@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { ErrorsState } from '../../types/types';
 
 function LoginForm() {
@@ -7,6 +8,7 @@ function LoginForm() {
 	const [password, setPassword] = useState('');
 	const errors = useSelector((store: ErrorsState) => store.errors);
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const login = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -65,7 +67,9 @@ function LoginForm() {
 					</button>
 				</div>
 			</form>
-			<h2 className='text-center mt-3 text-blue-600 underline cursor-pointer'>
+			<h2
+				onClick={() => history.push('/register')}
+				className='text-center mt-3 text-blue-600 underline cursor-pointer'>
 				Register for an account
 			</h2>
 		</div>

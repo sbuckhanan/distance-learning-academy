@@ -5,6 +5,7 @@ import { RegistrationAction } from '../../types/types';
 // worker Saga: will be fired on "REGISTER" actions
 function* registerUser(action: RegistrationAction) {
 	try {
+		console.log('Registering user');
 		// clear any existing error on the registration page
 		yield put({ type: 'CLEAR_REGISTRATION_ERROR' });
 

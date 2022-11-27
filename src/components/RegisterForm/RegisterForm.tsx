@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ErrorsState } from '../../types/types';
+import { useHistory } from 'react-router-dom';
 
 function RegisterForm() {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const errors = useSelector((store: ErrorsState) => store.errors);
 	const dispatch = useDispatch();
+	const history = useHistory();
 
 	const registerUser = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -56,12 +58,14 @@ function RegisterForm() {
 					</label>
 				</div>
 				<div>
-					<button className='border-2 w-16 h-12 mt-5' type='submit' name='submit' value='Log In'>
+					<button className='border-2 w-20 h-12 mt-5' type='submit' name='submit' value='Log In'>
 						Register
 					</button>
 				</div>
 			</form>
-			<h2 className='text-center mt-3 text-blue-600 underline cursor-pointer'>
+			<h2
+				onClick={() => history.push('/')}
+				className='text-center mt-3 text-blue-600 underline cursor-pointer'>
 				Already have an account?
 			</h2>
 		</div>
