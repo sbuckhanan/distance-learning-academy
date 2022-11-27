@@ -8,25 +8,21 @@ function RegisterForm() {
 	const errors = useSelector((store: ErrorsState) => store.errors);
 	const dispatch = useDispatch();
 
-	const login = (event: React.FormEvent<HTMLFormElement>) => {
+	const registerUser = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		if (username && password) {
-			dispatch({
-				type: 'LOGIN',
-				payload: {
-					username: username,
-					password: password,
-				},
-			});
-		} else {
-			dispatch({ type: 'LOGIN_INPUT_ERROR' });
-		}
+		dispatch({
+			type: 'REGISTER',
+			payload: {
+				username: username,
+				password: password,
+			},
+		});
 	};
 
 	return (
 		<div className='border-2 w-2/5 h-80 mt-40 m-auto'>
-			<form className='text-center items-center justify-center mt-14' onSubmit={login}>
+			<form className='text-center items-center justify-center mt-14' onSubmit={registerUser}>
 				<h1>Registration</h1>
 				{errors.loginMessage && (
 					<h3 className='alert' role='alert'>
@@ -61,7 +57,7 @@ function RegisterForm() {
 				</div>
 				<div>
 					<button className='border-2 w-16 h-12 mt-5' type='submit' name='submit' value='Log In'>
-						Log In
+						Register
 					</button>
 				</div>
 			</form>
