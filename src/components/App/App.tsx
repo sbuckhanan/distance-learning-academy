@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect } from 'react';
-import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
+import { HashRouter as Router, Route, Navigate, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginPage from '../LoginPage/LoginPage';
 import { UserState } from '../../types/types';
@@ -15,27 +15,16 @@ function App() {
 
 	useEffect(() => {
 		dispatch({ type: 'FETCH_USER' });
-	}, [dispatch]);
+	}, [user]);
 
 	return (
 		<Router>
 			<NavBar />
-			<Route exact path='/'>
-				{user.id ? (
-					// If the user is already logged in,
-					// redirect to the /user page
-					<Redirect to='/dashboard' />
-				) : (
-					// Otherwise, show the login page
-					<LoginPage />
-				)}
-			</Route>
-			<Route exact path='/dashboard'>
-				<Dashboard />
-			</Route>
-			<Route exact path='/register'>
-				<RegisterForm />
-			</Route>
+			<Routes>
+				<Route path='/' element={user.id ? <Dashboard /> : <Navigate replace to={'/login'} />} />
+				<Route path='/login' element={<LoginPage />} />
+				<Route path='/register' element={<RegisterForm />} />
+			</Routes>
 		</Router>
 	);
 }

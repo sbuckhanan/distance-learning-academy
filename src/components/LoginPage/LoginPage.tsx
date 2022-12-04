@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ErrorsState } from '../../types/types';
 
 function LoginPage() {
@@ -8,7 +8,7 @@ function LoginPage() {
 	const [password, setPassword] = useState('');
 	const errors = useSelector((store: ErrorsState) => store.errors);
 	const dispatch = useDispatch();
-	const history = useHistory();
+	const navigate = useNavigate();
 
 	const login = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -28,8 +28,8 @@ function LoginPage() {
 
 	return (
 		<section>
-			<div className='flex min- overflow-hidden'>
-				<div className='flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
+			<div className='flex justify-center items-center min- overflow-hidden'>
+				<div className='flex flex-col justify-center items-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24'>
 					<div className='w-full max-w-xl mx-auto lg:w-96'>
 						<div className='mt-8'>
 							<div className='mt-6'>
@@ -40,16 +40,14 @@ function LoginPage() {
 										</h3>
 									)}
 									<div>
-										<label htmlFor='email' className='block text-sm font-medium text-neutral-600'>
+										<label htmlFor='username' className='block text-sm font-medium text-white'>
 											{' '}
 											Username{' '}
 										</label>
 										<div className='mt-1'>
 											<input
-												id='email'
-												name='email'
-												type='email'
-												auto-complete='email'
+												name='username'
+												type='text'
 												required
 												placeholder='Your Username'
 												onChange={(event) => setUsername(event.target.value)}
@@ -60,9 +58,7 @@ function LoginPage() {
 									</div>
 
 									<div className='space-y-1'>
-										<label
-											htmlFor='password'
-											className='block text-sm font-medium text-neutral-600'>
+										<label htmlFor='password' className='block text-sm font-medium text-white'>
 											{' '}
 											Password{' '}
 										</label>
@@ -84,7 +80,7 @@ function LoginPage() {
 									<div className='flex items-center justify-between'>
 										<div className='text-sm'>
 											<a
-												onClick={() => history.push('/register')}
+												onClick={() => navigate('/register')}
 												href='#'
 												className='font-medium text-blue-600 hover:text-blue-500'>
 												{' '}
@@ -105,61 +101,8 @@ function LoginPage() {
 						</div>
 					</div>
 				</div>
-				<div className='relative flex-1 hidden w-0 overflow-hidden lg:block'>
-					<img
-						className='absolute inset-0 object-cover w-full h-full'
-						src='/assets/images/placeholders/rectangleWide.png'
-						alt=''
-					/>
-				</div>
 			</div>
 		</section>
-		// <div classNameName='border-2 w-2/5 h-80 mt-40 m-auto'>
-		// 	<form classNameName='text-center items-center justify-center mt-14' onSubmit={login}>
-		// 		<h1>Welcome back!</h1>
-		// 		{errors.loginMessage && (
-		// 			<h3 classNameName='alert' role='alert'>
-		// 				{errors.loginMessage}
-		// 			</h3>
-		// 		)}
-		// 		<div>
-		// 			<label htmlFor='username'>
-		// 				Username:
-		// 				<input
-		// 					classNameName='mt-2 ml-2 rounded'
-		// 					type='text'
-		// 					name='username'
-		// 					required
-		// 					value={username}
-		// 					onChange={(event) => setUsername(event.target.value)}
-		// 				/>
-		// 			</label>
-		// 		</div>
-		// 		<div>
-		// 			<label htmlFor='password'>
-		// 				Password:
-		// 				<input
-		// 					classNameName='mt-2 ml-3 rounded'
-		// 					type='password'
-		// 					name='password'
-		// 					required
-		// 					value={password}
-		// 					onChange={(event) => setPassword(event.target.value)}
-		// 				/>
-		// 			</label>
-		// 		</div>
-		// 		<div>
-		// 			<button classNameName='border-2 w-16 h-12 mt-5' type='submit' name='submit' value='Log In'>
-		// 				Log In
-		// 			</button>
-		// 		</div>
-		// 	</form>
-		// 	<h2
-		// 		onClick={() => history.push('/register')}
-		// 		classNameName='text-center mt-3 text-blue-600 underline cursor-pointer'>
-		// 		Register htmlFor an account
-		// 	</h2>
-		// </div>
 	);
 }
 
