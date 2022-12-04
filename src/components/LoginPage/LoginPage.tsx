@@ -39,6 +39,7 @@ function LoginPage() {
 											{errors.loginMessage}
 										</h3>
 									)}
+									<h1 className='text-white font-bold text-2xl'>Login</h1>
 									<div>
 										<label htmlFor='username' className='block text-sm font-medium text-white'>
 											{' '}
@@ -81,10 +82,8 @@ function LoginPage() {
 										<div className='text-sm'>
 											<a
 												onClick={() => navigate('/register')}
-												href='#'
-												className='font-medium text-blue-600 hover:text-blue-500'>
-												{' '}
-												Register for an account{' '}
+												className='cursor-pointer font-medium text-blue-600 hover:text-blue-500'>
+												Don't have account? Register Here.
 											</a>
 										</div>
 									</div>

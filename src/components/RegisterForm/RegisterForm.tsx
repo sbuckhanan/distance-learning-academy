@@ -35,6 +35,7 @@ function RegisterForm() {
 											{errors.loginMessage}
 										</h3>
 									)}
+									<h1 className='text-white font-bold text-2xl'>Register</h1>
 									<div>
 										<label htmlFor='username' className='block text-sm font-medium text-white'>
 											{' '}
@@ -77,8 +78,7 @@ function RegisterForm() {
 										<div className='text-sm'>
 											<a
 												onClick={() => navigate('/login')}
-												href='#'
-												className='font-medium text-blue-600 hover:text-blue-500'>
+												className='cursor-pointer font-medium text-blue-600 hover:text-blue-500'>
 												{' '}
 												Already have an account? Sign In.{' '}
 											</a>

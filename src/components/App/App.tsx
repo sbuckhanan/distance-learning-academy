@@ -10,20 +10,22 @@ import { NavBar } from '../Navbar/Navbar';
 
 function App() {
 	const dispatch = useDispatch();
-
 	const user = useSelector((store: UserState) => store.user);
 
 	useEffect(() => {
 		dispatch({ type: 'FETCH_USER' });
-	}, [user]);
+	}, [dispatch]);
 
 	return (
 		<Router>
 			<NavBar />
 			<Routes>
 				<Route path='/' element={user.id ? <Dashboard /> : <Navigate replace to={'/login'} />} />
-				<Route path='/login' element={<LoginPage />} />
-				<Route path='/register' element={<RegisterForm />} />
+				<Route path='/login' element={!user.id ? <LoginPage /> : <Navigate replace to={'/'} />} />
+				<Route
+					path='/register'
+					element={!user.id ? <RegisterForm /> : <Navigate replace to={'/'} />}
+				/>
 			</Routes>
 		</Router>
 	);
