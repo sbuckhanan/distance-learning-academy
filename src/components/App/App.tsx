@@ -19,7 +19,7 @@ function App() {
 
 	return (
 		<Router>
-			<NavBar />
+			{/* <NavBar /> */}
 			<Route exact path='/'>
 				{user.id ? (
 					// If the user is already logged in,
