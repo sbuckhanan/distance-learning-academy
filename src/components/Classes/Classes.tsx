@@ -24,10 +24,9 @@ export function Classes() {
 						{/* All Nav Items for mobile only */}
 						<select
 							aria-label='Selected tab'
+							defaultValue='Dashboard'
 							className='form-select block w-full p-3 border border-gray-300 rounded text-gray-600 appearance-none bg-transparent relative z-10'>
-							<option selected className='text-sm text-gray-600'>
-								Dashboard{' '}
-							</option>
+							<option className='text-sm text-gray-600'>Dashboard </option>
 							<option className='text-sm text-gray-600'>Earnings </option>
 							<option className='text-sm text-gray-600'>Forecasting </option>
 							<option className='text-sm text-gray-600'>Reports </option>
@@ -55,7 +54,7 @@ export function Classes() {
 			<div className='container mx-auto px-6 mt-10 h-64'>
 				{/* Remove class [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
 				<div className='w-full h-full rounded border-dashed border-2 border-gray-300'>
-					{/* Place your content here */} Yooooo
+					{/* Place your content here */}
 				</div>
 			</div>
 		</>

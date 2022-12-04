@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect } from 'react';
 import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import LoginForm from '../LoginPage/LoginPage';
+import LoginPage from '../LoginPage/LoginPage';
 import { UserState } from '../../types/types';
 import { Dashboard } from '../Dashboard/Dashboard';
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -27,7 +27,7 @@ function App() {
 					<Redirect to='/dashboard' />
 				) : (
 					// Otherwise, show the login page
-					<LoginForm />
+					<LoginPage />
 				)}
 			</Route>
 			<Route exact path='/dashboard'>
