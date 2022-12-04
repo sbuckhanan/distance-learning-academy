@@ -1,12 +1,12 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { HashRouter as Router, Route, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from '../LoginPage/LoginPage';
 import { UserState } from '../../types/types';
-import { HomePage } from '../HomePage/HomePage';
+import { Dashboard } from '../Dashboard/Dashboard';
 import RegisterForm from '../RegisterForm/RegisterForm';
-import NavBar from '../Navbar/Navbar';
+import { NavBar } from '../Navbar/Navbar';
 
 function App() {
 	const dispatch = useDispatch();
@@ -19,19 +19,19 @@ function App() {
 
 	return (
 		<Router>
-			{/* <NavBar /> */}
+			<NavBar />
 			<Route exact path='/'>
 				{user.id ? (
 					// If the user is already logged in,
 					// redirect to the /user page
-					<Redirect to='/home' />
+					<Redirect to='/dashboard' />
 				) : (
 					// Otherwise, show the login page
 					<LoginForm />
 				)}
 			</Route>
-			<Route exact path='/home'>
-				<HomePage />
+			<Route exact path='/dashboard'>
+				<Dashboard />
 			</Route>
 			<Route exact path='/register'>
 				<RegisterForm />
