@@ -7,6 +7,8 @@ import { UserState } from '../../types/types';
 import { Dashboard } from '../Dashboard/Dashboard';
 import RegisterForm from '../RegisterForm/RegisterForm';
 import { NavBar } from '../Navbar/Navbar';
+import { Gradebook } from '../Gradebook/Gradebook';
+import { ClassesList } from '../ClassesList/ClassesList';
 
 function App() {
 	const dispatch = useDispatch();
@@ -21,6 +23,8 @@ function App() {
 			<NavBar />
 			<Routes>
 				<Route path='/' element={user.id ? <Dashboard /> : <Navigate replace to={'/login'} />} />
+				<Route path='/classlist' element={<ClassesList />} />
+				<Route path='/gradebook' element={<Gradebook />} />
 				<Route path='/login' element={!user.id ? <LoginPage /> : <Navigate replace to={'/'} />} />
 				<Route
 					path='/register'

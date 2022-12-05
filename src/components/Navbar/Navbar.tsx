@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { UserState } from '../../types/types';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export function NavBar() {
 	const [show, setShow] = useState(false);
 	const [profile, setProfile] = useState(false);
+	const [activeTab, setActiveTab] = useState(1);
 	const user = useSelector((store: UserState) => store.user);
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -263,17 +266,50 @@ export function NavBar() {
 									Distance Learning Academy
 								</h3>
 							</div>
-							<ul className='pr-32 xl:flex hidden items-center h-full'>
-								<li className='hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-indigo-700 tracking-normal'>
+							<ul className='pr-32 xl:flex space-between justify-center hidden items-center h-full'>
+								<li
+									onClick={() => {
+										setActiveTab(1);
+										navigate('/');
+									}}
+									className={
+										activeTab === 1
+											? 'text-indigo-700 hover:text-indigo-700 cursor-pointer flex items-center text-md'
+											: 'text-gry-800 hover:text-indigo-700 cursor-pointer flex items-center text-sm'
+									}>
 									Dashboard
 								</li>
-								<li className='hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mx-10 tracking-normal relative'>
+								<li
+									onClick={() => {
+										setActiveTab(2);
+										navigate('/classlist');
+									}}
+									className={
+										activeTab === 2
+											? 'text-indigo-700 hover:text-indigo-700 cursor-pointer flex items-center text-md mx-10'
+											: 'text-gry-800 hover:text-indigo-700 cursor-pointer flex items-center text-sm mx-10'
+									}>
 									Classes
 								</li>
-								<li className='hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gry-800 mr-10 tracking-normal'>
+								<li
+									onClick={() => {
+										setActiveTab(3);
+										navigate('/gradebook');
+									}}
+									className={
+										activeTab === 3
+											? 'text-indigo-700 hover:text-indigo-700 cursor-pointer flex items-center text-md mr-10'
+											: 'text-gry-800 hover:text-indigo-700 cursor-pointer flex items-center text-sm mr-10'
+									}>
 									Grade Book
 								</li>
-								<li className='hover:text-indigo-700 cursor-pointer h-full flex items-center text-sm text-gray-800 tracking-normal relative'>
+								<li
+									onClick={() => setActiveTab(4)}
+									className={
+										activeTab === 4
+											? 'text-indigo-700 hover:text-indigo-700 cursor-pointer flex items-center text-md'
+											: 'text-gry-800 hover:text-indigo-700 cursor-pointer flex items-center text-sm'
+									}>
 									Deliverables
 								</li>
 							</ul>
@@ -283,11 +319,11 @@ export function NavBar() {
 								<div className='w-32 pr-16 h-full flex items-center justify-end border-r' />
 								<div className='w-full h-full flex'>
 									<div className='w-16 xl:w-32 h-full flex items-center justify-center xl:border-r'>
-										<div className='relative'>
+										<div className='cursor-pointer relative'>
 											<div className='cursor-pointer w-6 h-6 xl:w-auto xl:h-auto text-gray-600'>
 												<svg
 													xmlns='http://www.w3.org/2000/svg'
-													className='icon icon-tabler icon-tabler-bell'
+													className='cursor-pointer icon icon-tabler icon-tabler-bell'
 													width={28}
 													height={28}
 													viewBox='0 0 24 24'
