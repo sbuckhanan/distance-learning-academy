@@ -40,7 +40,7 @@ export function ClassesList() {
 								</tr>
 							</thead>
 							<tbody>
-								<tr className='bg-white border-b dark:bg-gray-800 text-center dark:border-gray-700'>
+								<tr className='bg-white border-b dark:bg-gray-800 text-center dark:border-gray-700 hover:bg-gray-900 cursor-pointer'>
 									<th
 										scope='row'
 										className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
@@ -50,14 +50,12 @@ export function ClassesList() {
 									<td className='py-4 px-6'>Science</td>
 									<td className='py-4 px-6'>25/30</td>
 									<td className='py-4 px-6'>
-										<a
-											href='#'
-											className='font-medium text-blue-600 dark:text-blue-500 hover:underline'>
+										<span className='font-medium text-blue-600 dark:text-blue-500 hover:underline'>
 											Edit
-										</a>
+										</span>
 									</td>
 								</tr>
-								<tr className='bg-white border-b dark:bg-gray-800 text-center dark:border-gray-700'>
+								<tr className='bg-white border-b dark:bg-gray-800 text-center dark:border-gray-700 hover:bg-gray-900 cursor-pointer'>
 									<th
 										scope='row'
 										className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
@@ -67,14 +65,12 @@ export function ClassesList() {
 									<td className='py-4 px-6'>Phy Ed</td>
 									<td className='py-4 px-6'>30/30</td>
 									<td className='py-4 px-6'>
-										<a
-											href='#'
-											className='font-medium text-blue-600 dark:text-blue-500 hover:underline'>
+										<span className='font-medium text-blue-600 dark:text-blue-500 hover:underline'>
 											Edit
-										</a>
+										</span>
 									</td>
 								</tr>
-								<tr className='bg-white text-center dark:bg-gray-800'>
+								<tr className='bg-white text-center dark:bg-gray-800 hover:bg-gray-900 cursor-pointer'>
 									<th
 										scope='row'
 										className='py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white'>
@@ -84,11 +80,9 @@ export function ClassesList() {
 									<td className='py-4 px-6'>Health</td>
 									<td className='py-4 px-6'>28/30</td>
 									<td className='py-4 px-6'>
-										<a
-											href='#'
-											className='font-medium text-blue-600 dark:text-blue-500 hover:underline'>
+										<span className='font-medium text-blue-600 dark:text-blue-500 hover:underline'>
 											Edit
-										</a>
+										</span>
 									</td>
 								</tr>
 							</tbody>
@@ -165,11 +159,11 @@ export function ClassesList() {
 								width='20'
 								height='20'
 								viewBox='0 0 24 24'
-								stroke-width='2.5'
+								strokeWidth='2.5'
 								stroke='currentColor'
 								fill='none'
-								stroke-linecap='round'
-								stroke-linejoin='round'>
+								strokeLinecap='round'
+								strokeLinejoin='round'>
 								<path stroke='none' d='M0 0h24v24H0z' />
 								<line x1='18' y1='6' x2='6' y2='18' />
 								<line x1='6' y1='6' x2='18' y2='18' />
