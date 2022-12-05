@@ -103,7 +103,18 @@ export function NavBar() {
 														/>
 													</svg>
 												</div>
-												<p className='text-indigo-500 ml-3 text-lg'>Dashboard</p>
+												<p
+													onClick={() => {
+														setActiveTab(1);
+														navigate('/');
+													}}
+													className={
+														activeTab === 1
+															? 'text-indigo-500 ml-3 text-lg'
+															: 'text-gray-700 ml-3 text-lg'
+													}>
+													Dashboard
+												</p>
 											</div>
 										</li>
 									</a>
@@ -122,7 +133,18 @@ export function NavBar() {
 															/>
 														</svg>
 													</div>
-													<p className='text-gray-700 ml-3 text-lg'>Classes</p>
+													<p
+														onClick={() => {
+															setActiveTab(2);
+															navigate('/classlist');
+														}}
+														className={
+															activeTab === 2
+																? 'text-indigo-500 ml-3 text-lg'
+																: 'text-gray-700 ml-3 text-lg'
+														}>
+														Classes
+													</p>
 												</div>
 											</div>
 										</li>
@@ -148,7 +170,18 @@ export function NavBar() {
 														/>
 													</svg>
 												</div>
-												<p className='text-gray-800 ml-3 text-lg'>Grade Book</p>
+												<p
+													onClick={() => {
+														setActiveTab(3);
+														navigate('/gradebook');
+													}}
+													className={
+														activeTab === 3
+															? 'text-indigo-500 ml-3 text-lg'
+															: 'text-gray-700 ml-3 text-lg'
+													}>
+													Grade Book
+												</p>
 											</div>
 										</li>
 									</a>
