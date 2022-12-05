@@ -3,6 +3,10 @@ import { useState } from 'react';
 export function ClassesList() {
 	const [modelOpen, setModelOpen] = useState(false);
 
+	const toggleModel = () => {
+		setModelOpen(!modelOpen);
+	};
+
 	return (
 		<>
 			{/* Remove className [ h-64 ] when adding a card block */}
@@ -10,7 +14,7 @@ export function ClassesList() {
 				{/* Remove className [ border-dashed border-2 border-gray-300 ] to remove dotted border */}
 				<div className='w-full h-full rounded'>
 					<button
-						onClick={() => setModelOpen(true)}
+						onClick={toggleModel}
 						className='bg-indigo-600 w-24 h-10 mb-3 rounded hover:bg-indigo-500'>
 						Create Class
 					</button>
@@ -144,12 +148,14 @@ export function ClassesList() {
 							<button className='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm'>
 								Submit
 							</button>
-							<button className='focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm'>
+							<button
+								onClick={toggleModel}
+								className='focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm'>
 								Cancel
 							</button>
 						</div>
 						<button
-							onClick={() => setModelOpen(false)}
+							onClick={toggleModel}
 							className='cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600'
 							aria-label='close modal'
 							role='button'>
